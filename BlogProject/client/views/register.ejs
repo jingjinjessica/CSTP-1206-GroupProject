@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheet/Register.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/javascript/client.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-4 p-sm-5">
+              <h3 class="card-title text-center mb-5 fw-light fs-5">Register</h3>
+              <form id="register" action="/register" method="post" onsubmit="return validateForm()">
+                <div class="mb-3">
+                  <p id="id" message="message"></p>
+                  <input type="hidden" name="_method" value="PUT"/>
+                  <label for="typeNameX-2" class="form-label">User Name</label>
+                  <input id="typeEmailX-2" name="username" type="text" placeholder="Name" class="form-control form-control-sm"/>
+                </div>
+                <div class="mb-3">
+                  <label for="typePasswordX-2" class="form-label">Email</label>
+                  <input id="typePasswordX-2" name="email" type="email" class="form-control form-control-sm"/>
+                </div>
+                <div class="mb-3">
+                  <label for="typePasswordX-2" class="form-label">Password</label>
+                  <input id="typePasswordX-2" name="pwd" type="password" class="form-control form-control-sm"/>
+                </div>
+                <div class="mb-3">
+                  <label for="typePasswordX-2" class="form-label">Confirm Password</label>
+                  <input id="typePasswordX-2" name="cmpwd" type="password" class="form-control form-control-sm"/>
+                </div>
+                <div class="text-center justify-content-start mb-5">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block text-center">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
