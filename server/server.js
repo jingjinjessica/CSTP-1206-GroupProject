@@ -3,7 +3,7 @@ const app = express();
 const PORT = 4000;
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/users");
-// const postRoute = require("./routes/posts");
+const postRoute = require("./routes/posts");
 
 require("dotenv").config();
 
@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI, (error) => {
 
 // We will use middleware
 app.use("/api/v1/users", userRoutes);
-// app.use("/api/v1/posts", postRoute);
+app.use("/api/v1/posts", postRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
