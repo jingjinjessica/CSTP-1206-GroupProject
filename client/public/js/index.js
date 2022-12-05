@@ -20,12 +20,16 @@ const submitLoginForm = async (event) => {
         "Content-type": "application/json",
       },
     });
-    if (response) {
-      console.log("login successful");
-      window.location.href = "/dashboard.html";
+
+    const loginResponse = await response.json();
+
+    if (loginResponse.accessToken) {
+      // console.log("login successful");
+      window.location.href = "./dashboard.html";
+    } else {
+      alert(loginResponse.message);
     }
   } catch (error) {
     console.log(error);
   }
-  console.log(response);
 };
