@@ -1,30 +1,33 @@
 const mongoose = require("mongoose");
 
-const PostSchema = mongoose.Schema({
+const PostSchema = mongoose.Schema(
+  {
     title: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
     desc: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     photo: {
-        type: String,
-        required: false
+      type: String,
+      required: false,
     },
-    username:{
-        type: String,
-        required: true,
-    },
-    categories:{
+    categories: {
       type: Array,
-      required:false
-    }
-}, {
-    timestamps: true
-})
+      required: false,
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const Post = mongoose.model("Post", PostSchema);
 

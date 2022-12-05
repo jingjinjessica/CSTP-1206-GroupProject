@@ -1,0 +1,22 @@
+.form-container {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  padding: 40px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+  margin: auto;
+}
