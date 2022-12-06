@@ -1,4 +1,14 @@
 let user = {};
+let baseUrl = "/api/v1";
+
+(function isAlreadyLoggedIN() {
+  let accessToken = JSON.parse(localStorage.getItem("acess-token"));
+
+  if (accessToken) {
+      window.location.href = "home/home.html";
+  }
+})();  
+
 
 const setEmail = (event) => {
   user.email = event.target.value;
@@ -13,23 +23,28 @@ const submitLoginForm = async (event) => {
   //console.log(user);
 
   try {
-    const response = await fetch("/api/v1/users/login", {
-      method: "post",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    const response = await fetch(`${baseUrl}/users/login`, {
+         method: "post",
+         body: JSON.stringify(user),
+         headers: {
+             'Content-Type': 'application/json'
+         },
+     })
 
-    const loginResponse = await response.json();
+     const finalIncomingResponse = await response.json();
 
-    if (loginResponse.accessToken) {
-      // console.log("login successful");
-      window.location.href = "./dashboard.html";
-    } else {
-      alert(loginResponse.message);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+     // We have to fix this 
+     if (finalIncomingResponse.accessToken) {
+         // This is for saving user object in the browser storage
+         localStorage.setItem("user", JSON.stringify(finalIncomingResponse.data));
+
+         // This is for storing access token in the browser storage
+         localStorage.setItem("acess-token", JSON.stringify(finalIncomingResponse.accessToken));
+         window.location.href = "/dashboard.html";
+     } else {
+         alert(finalIncomingResponse.message);
+     }
+      } catch(error) {
+          console.log(error);
+      }
+  };

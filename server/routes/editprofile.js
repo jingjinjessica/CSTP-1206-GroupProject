@@ -3,9 +3,9 @@ const router = express.Router();
 
 const{editProfile}= require("../controller/user");
 
-router.get('/editprofile', function(req, res) {
+router.get('/', function(req, res) {
     res.render('editprofile.html');
   });
 
-router.post("/editprofile",editProfile);
+router.post("/",editProfile);
 module.exports = router;
