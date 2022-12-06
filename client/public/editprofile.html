@@ -39,8 +39,11 @@
         </div>
         <!-- image upload -->
         <div class="mb-3">
-          <input type="file" multiple class="form-control">
-          <label for="file-upload" class="custom-file-upload"></label>
+          <input type="file" id="myImage" multiple class="form-control" accept="image/png, image/gif, image/jpeg"/>
+          <label for="myImage" class="custom-file-upload">
+            <img id="mypic">
+          </label>
+          <input type="hidden" id="imageData" name="imageData"/>
         </div>
         <!-- info input -->
         <div class="mb-3">
