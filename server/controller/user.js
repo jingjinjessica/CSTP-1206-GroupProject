@@ -97,8 +97,26 @@ const getAllUsers = async (request, response) => {
   }
 };
 
+const editProfile = async(request, response) => {
+  const user = req.token.user;
+    User.findOneAndUpdate({_id: user._id}, {$set: {avatar: req.body.imageData}}).then((data) => {
+    req.token.user = data;
+    res.render('editprofile');
+    return response.status(200).json({
+      message: "updated Succesfully",
+      filteredData,
+    })
+  }).catch((error) => {
+     return res.status(500). json({
+       message: "fail to update user",
+       error
+     })
+   });
+};
+
 module.exports = {
   registerUser,
   loginUser,
   getAllUsers,
+  editProfile,
 };
