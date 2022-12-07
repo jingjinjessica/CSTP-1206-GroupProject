@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 4000;
 const mongoose = require("mongoose");
+const multer = require("multer");
 const userRoutes = require("./routes/users");
 const postRoute = require("./routes/posts");
 

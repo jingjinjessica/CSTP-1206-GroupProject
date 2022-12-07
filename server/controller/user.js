@@ -84,7 +84,6 @@ const getAllUsers = async (request, response) => {
         createdAt: user.createdAt,
       };
     });
-
     return response.status(200).json({
       message: "Users found Succesfully",
       filteredData,

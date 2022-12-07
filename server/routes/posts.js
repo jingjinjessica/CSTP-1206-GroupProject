@@ -2,18 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 // Here we are using destructuring
-const { createPost, getAllPosts } = require("../controller/post");
-
-// router.get("/", userController.getAllUsers)
+const {
+  createPost,
+  getAllPosts,
+  updatePost,
+  deletePost,
+  getPostById,
+} = require("../controller/post");
 
 router.get("/", getAllPosts);
 
 router.post("/create", createPost);
 
-// router.get("/:id", userController.getUserById)
+router.get("/:id", getPostById);
 
-// router.put("/:id", userController.updateUser)
+router.put("/:id", updatePost);
 
-// router.delete(":/id", userController.deletUser);
+router.delete("/:id", deletePost);
 
 module.exports = router;
