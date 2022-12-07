@@ -55,6 +55,7 @@ const loginUser = async (request, response) => {
       return response.status(200).json({
         message: "User Succesfully Logged In",
         accessToken,
+        data: foundUser
       });
     } else {
       // User password is incorrect
@@ -96,8 +97,40 @@ const getAllUsers = async (request, response) => {
   }
 };
 
+const editProfile = async(request, response) => {
+  const user = request.body;
+
+  const updateClause = {$set: {avatar: user.imageData, name: user.name}};
+  if(user.password){
+    const encryptPassword = await bcrypt.hash(user.password, 10);
+    updateClause["$set"]["password"] = encryptPassword;
+  }
+    User.findOneAndUpdate({_id: user._id}, updateClause, {new: true}).then((data) => {
+
+      const accessToken = jwt.sign(
+        {
+          email: data.email,
+          name: data.name,
+        },
+        process.env.SECRET_KEY
+      );
+
+    return response.status(200).json({
+      message: "updated Succesfully",
+      accessToken,
+      data
+    })
+  }).catch((error) => {
+     return res.status(500). json({
+       message: "fail to update user",
+       error
+     })
+   });
+};
+
 module.exports = {
   registerUser,
   loginUser,
   getAllUsers,
+  editProfile,
 };
