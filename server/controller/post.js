@@ -9,16 +9,14 @@ const createPost = async (request, response) => {
   // console.log(data);
 
   // The ? mark checks for optional
-  const token = request.headers?.authorization.split(" ")[1];
+  //const token = request.headers?.authorization.split(" ")[1];
   //console.log(token);
+  console.log(request.decodedEmail);
+  if (request.decodedEmail) {
+    //const decodedValue = jwt.decode(token, { complete: true });
 
-  if (token) {
-    const decodedValue = jwt.decode(token, { complete: true });
-
-    const findUser = await User.findOne({
-      email: decodedValue?.payload?.email,
-    });
-    console.log(findUser.email);
+    const findUser = await User.findOne({ email: request.decodedEmail });
+    console.log(findUser);
 
     if (findUser) {
       const newPost = new Post(data);
@@ -103,7 +101,7 @@ const getAllPosts = async (request, response) => {
     const data = await Post.find();
     return response.status(200).json({
       message: "Posts found Succesfully",
-      data
+      data,
     });
   } catch (error) {
     return response.status(500).json({
