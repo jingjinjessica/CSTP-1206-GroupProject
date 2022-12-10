@@ -4,8 +4,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <script src="./js/dashboard.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  this is dashboard
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <img class="logo" src="./image/logo.png" alt="logo">
+    </a>
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li class="blogs"><a href="./index.html" class="nav-link px-5 link-secondary">Blogs</a></li>
+      <li class="create"><a href="./create.html" class="nav-link px-5 link-dark">Create</a></li>
+      <li class="profile"><a href="./editprofile.html" class="nav-link px-5 link-dark">Profile</a></li>
+    </ul>
+    <!-- <div class="col-md-3 text-end">
+      <img src="./image/user-photo.jpg" alt="user-photo" class="user-photo">
+      <span class="user-name">User Name</span>
+    </div> -->
+  </header>
+
+  <h1 id="username"></h1>
+    <!-- <i class="fa-solid fa-user"></i> -->
+    
+    <div class="menu-container">
+        <h2>Here are the list of posts</h2>
+        <div>
+            <button class="logout-button" onclick="logout()">logout</button>
+        </div>
+    </div>
+
+    <div id="postsview">
+    </div>
+
 </body>
 </html>

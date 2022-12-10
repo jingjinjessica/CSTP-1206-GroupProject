@@ -196,3 +196,29 @@ select {
   margin-right: 15px;
 }
 
+/* dashboard*/
+.card {
+  background: #ededed;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#postsview {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logout-button {
+  background: black;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}

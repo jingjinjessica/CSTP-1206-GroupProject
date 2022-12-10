@@ -1,27 +1,42 @@
 const Post = require("../model/Post");
 const jwt = require("jsonwebtoken");
 const User = require("../model/User");
+const cloudinary = require("../library/cloudinary");
 
 //create post
 const createPost = async (request, response) => {
   const data = request.body;
   // console.log(request.headers?.authorization);
-  // console.log(data);
+  console.log("this is data", data);
 
   // The ? mark checks for optional
   //const token = request.headers?.authorization.split(" ")[1];
   //console.log(token);
-  console.log(request.decodedEmail);
+  //console.log(request.decodedEmail);
   if (request.decodedEmail) {
     //const decodedValue = jwt.decode(token, { complete: true });
 
     const findUser = await User.findOne({ email: request.decodedEmail });
-    console.log(findUser);
+    //console.log(findUser);
 
     if (findUser) {
-      const newPost = new Post(data);
-
       try {
+        console.log(data.photo);
+        const img = await cloudinary.uploader.upload(data.photo, {
+          folder: "blogPhoto",
+        });
+        console.log(img);
+
+        const newPost = new Post({
+          title: data.title,
+          desc: data.desc,
+          categories: data.categories,
+          photo: {
+            public_id: img.public_id,
+            url: img.secure_url,
+          },
+          userID: findUser._id,
+        });
         const output = await newPost.save();
         return response.status(201).json({
           message: "Post Succesfully Created",

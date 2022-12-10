@@ -13,7 +13,7 @@ require("dotenv").config();
 app.use(express.json());
 
 // Throught this middleware you can connect to your frontend application
-app.use(express.static("../client/public"));
+app.use(express.static("./client/public"));
 
 app.use(morgan("dev"));
 
@@ -26,7 +26,7 @@ mongoose.connect(process.env.MONGO_URI, (error) => {
 });
 
 function userLogger(req, res, next) {
-  console.log("Loading USer requests....");
+  console.log("Loading User requests....");
   next(); // Pass the control to the next middleware
 }
 
