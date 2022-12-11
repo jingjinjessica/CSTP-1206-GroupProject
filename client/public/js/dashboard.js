@@ -7,10 +7,10 @@
   }
 })();
 
-const getUser = JSON.parse(localStorage.getItem("user"));
+// const getUser = JSON.parse(localStorage.getItem("user"));
 
-const username = document.querySelector("#username");
-username.innerHTML = `Hello ${getUser.name}`;
+// const username = document.querySelector("#username");
+// username.innerHTML = `Hello ${getUser.name}`;
 
 const showListOfPosts = async () => {
   const response = await fetch("/api/v1/posts");

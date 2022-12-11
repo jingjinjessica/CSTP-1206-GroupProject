@@ -108,7 +108,10 @@ const setEmail = (event) => {
 const setPassword = (event) => {
   user.password = event.target.value;
 };
+// const getUser = JSON.parse(localStorage.getItem("user"));
 
+// const username = document.querySelector("#username");
+// username.innerHTML = `Hello ${getUser.name}`;
 
 
 

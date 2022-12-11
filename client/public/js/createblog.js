@@ -16,6 +16,11 @@ const setImage = (event) => {
   newPost.photo = event.targe.value;
 }
 
+// const getUser = JSON.parse(localStorage.getItem("user"));
+
+// const username = document.querySelector("#username");
+// username.innerHTML = `Hello ${getUser.name}`;
+
 
 const submitPost = async (event) => {
   event.preventDefault();
