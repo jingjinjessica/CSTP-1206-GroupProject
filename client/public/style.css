@@ -195,12 +195,17 @@ select {
 .cancel {
   margin-right: 15px;
 }
-
 /* dashboard*/
 .card {
-  background: #ededed;
+  background: #fbdec9;
   padding: 20px;
   border-radius: 20px;
+  width: 200px;
+  height: 300px;
+}
+
+.card img[src] {
+  width: 180px;
 }
 
 #postsview {
@@ -208,7 +213,6 @@ select {
   grid-template-columns: auto auto auto;
   gap: 20px;
 }
-
 .menu-container {
   display: flex;
   align-items: center;
