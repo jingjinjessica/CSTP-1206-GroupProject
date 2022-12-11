@@ -85,12 +85,11 @@ function loadProfile(){
     const curUser = JSON.parse(localStorage.getItem("user"));
     setElementValue("InputUsername", curUser.name);
     setElementValue("InputEmail", curUser.email);
-    document.getElementById("profile-image").src = curUser.avatar?curUser.avatar:"./image/user-photo.jpg";
     setElementValue("userName",curUser.name);
-
     user = curUser;
     user.password = "";
 }
+
 
 function setElementValue(id, value){
     document.getElementById(id).value = value;

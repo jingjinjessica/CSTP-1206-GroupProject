@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <script src="./js/dashboard.js" defer></script>
-  <script src="./js/editprofile.js"></script>
+  <script src="./js/common.js"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -16,13 +16,9 @@
     </a>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li class="blogs"><a href="./index.html" class="nav-link px-5 link-secondary">Blogs</a></li>
-      <li class="create"><a href="./create.html" class="nav-link px-5 link-dark">Create</a></li>
+      <li class="create"><a href="./createblog.html" class="nav-link px-5 link-dark">Create</a></li>
       <li class="profile"><a href="./editprofile.html" class="nav-link px-5 link-dark">Profile</a></li>
     </ul>
-    <!-- <div class="col-md-3 text-end">
-      <img src="./image/user-photo.jpg" alt="user-photo" class="user-photo">
-      <span class="user-name">User Name</span>
-    </div> -->
     <div class="col-md-3 text-end">
       <img src="./image/user-photo.jpg" id="profile-image" alt="user-photo" class="user-photo">
       <input type="text"  id="userName"  >
@@ -44,4 +40,9 @@
     </div>
 
 </body>
+
+<script type="text/javascript">
+
+  loadProfileAvatar();
+</script>
 </html>

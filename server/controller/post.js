@@ -22,10 +22,11 @@ const createPost = async (request, response) => {
     if (findUser) {
       try {
         console.log(data.photo);
-        const img = await cloudinary.uploader.upload(data.photo, {
-          folder: "blogPhoto",
-        });
-        console.log(img);
+        // const img = await cloudinary.uploader.upload(data.photo, {
+        //   folder: "blogPhoto",
+        // });
+        // console.log(img);
+        const img = {public_id: "fake_id", secure_url: "fake_url"};
 
         const newPost = new Post({
           title: data.title,
@@ -43,6 +44,7 @@ const createPost = async (request, response) => {
           data: output,
         });
       } catch (error) {
+        console.info(error);
         return response.status(500).json({
           message: "There was an error",
           error,
