@@ -38,11 +38,21 @@
       <div class="container create-area">
         <div class="row">
           <div class="col upload">
-            <img id="" src="./image/Screen Shot 2022-12-05 at 12.18.51 AM.png" height="330" width="330"
+            <img 
+              id="imagePreview" 
+              src="./image/Screen Shot 2022-12-05 at 12.18.51 AM.png" 
+              height="330" 
+              width="330"
               style="display:block" />
             <div class="button_outer">
               <div class="btn_upload">
-                <input type="file" id="upload_file" name="" onchange="setImage(event)">Upload
+                <input 
+                  type="file" 
+                  id="upload_file" 
+                  name="" 
+                  onchange="setImage(event)" 
+                  autocomplete="off"
+                />Upload
               </div>
             </div>
           </div>
@@ -55,7 +65,16 @@
               <div class="w-100"></div>
               <div class="col">
                 <span>Category: </span>
-                <input type="text" onchange="setCategory(event)">
+                <select onchange="setCategory(event)" autocomplete="off">
+                  <option value="">--Select a Category</option>
+                  <option value="Travel">Travel</option>
+                  <option value="Food">Food</option>
+                  <option value="Career">Career</option>
+                  <option value="Gaming">Gaming</option>
+                  <option value="Nature">Nature</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Others">Others</option>
+                </select>
               </div>             
               <div class="w-100"></div>
               <div class="col description">
