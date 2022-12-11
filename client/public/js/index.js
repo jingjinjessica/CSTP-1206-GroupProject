@@ -2,7 +2,7 @@ let user = {};
 let baseUrl = "/api/v1";
 
 (function isAlreadyLoggedIN() {
-  let accessToken = JSON.parse(localStorage.getItem("acess-token"));
+  let accessToken = JSON.parse(localStorage.getItem("access-token"));
 
   if (accessToken) {
     window.location.href = "/dashboard.html";
@@ -39,7 +39,7 @@ const submitLoginForm = async (event) => {
 
       // This is for storing access token in the browser storage
       localStorage.setItem(
-        "acess-token",
+        "access-token",
         JSON.stringify(finalIncomingResponse.accessToken)
       );
       window.location.href = "/dashboard.html";

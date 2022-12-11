@@ -12,6 +12,11 @@ const setDesc = (event) => {
   newPost.desc = event.target.value;
 };
 
+const setImage = (event) => {
+  newPost.photo = event.targe.value;
+}
+
+
 const submitPost = async (event) => {
   event.preventDefault();
   try {
@@ -21,7 +26,7 @@ const submitPost = async (event) => {
       headers: {
         "Content-type": "application/json",
         Authorization: `Bearer ${JSON.parse(
-          localStorage.getItem("acess-token")
+          localStorage.getItem("access-token")
         )}`,
       },
     });
