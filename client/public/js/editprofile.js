@@ -143,7 +143,7 @@ const submitProfileForm = async (event) => {
            localStorage.setItem("user", JSON.stringify(finalIncomingResponse.data));
   
            // This is for storing access token in the browser storage
-           localStorage.setItem("acess-token", JSON.stringify(finalIncomingResponse.accessToken));
+           localStorage.setItem("access-token", JSON.stringify(finalIncomingResponse.accessToken));
            window.location.href = "/dashboard.html";
        } else {
            alert(finalIncomingResponse.message);

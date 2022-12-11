@@ -12,9 +12,15 @@ const setDesc = (event) => {
   newPost.desc = event.target.value;
 };
 
+const setImage = (event) => {
+  newPost.photo = event.targe.value;
+}
+
+
 const submitPost = async (event) => {
   event.preventDefault();
   try {
+
     if(blogId){
       const response = await fetch(`/api/v1/posts/${blogId}`, {
         method: "put",
@@ -39,6 +45,7 @@ const submitPost = async (event) => {
         },
       });
     }
+
     console.log("api");
     window.location.href = "/";
   } catch (error) {

@@ -7,12 +7,11 @@ const userRoutes = require("./server/routes/users");
 const postRoute = require("./server/routes/posts");
 const editProfileRoute = require("./server/routes/editprofile");
 const morgan = require("morgan");
-const  bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 require("dotenv").config();
 
 app.use(express.json());
 
-;
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 

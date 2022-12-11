@@ -7,7 +7,7 @@ const cloudinary = require("../library/cloudinary");
 const createPost = async (request, response) => {
   const data = request.body;
   // console.log(request.headers?.authorization);
-  console.log("this is data", data);
+  //console.log("this is data", data);
 
   // The ? mark checks for optional
   //const token = request.headers?.authorization.split(" ")[1];
@@ -17,25 +17,22 @@ const createPost = async (request, response) => {
     //const decodedValue = jwt.decode(token, { complete: true });
 
     const findUser = await User.findOne({ email: request.decodedEmail });
-    //console.log(findUser);
+    console.log(findUser);
 
     if (findUser) {
       try {
-        console.log(data.photo);
+        //console.log(data.photo);
         // const img = await cloudinary.uploader.upload(data.photo, {
-        //   folder: "blogPhoto",
+        //   folder: "blog",
         // });
         // console.log(img);
-        const img = {public_id: "fake_id", secure_url: "fake_url"};
+        //const img = {public_id: "fake_id", secure_url: "fake_url"};
 
         const newPost = new Post({
           title: data.title,
           desc: data.desc,
           categories: data.categories,
-          photo: {
-            public_id: img.public_id,
-            url: img.secure_url,
-          },
+          photo: data.photo,
           userID: findUser._id,
         });
         const output = await newPost.save();
