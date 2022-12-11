@@ -1,5 +1,10 @@
 let newPost = {};
 
+const getUser = JSON.parse(localStorage.getItem("user"));
+
+const username = document.querySelector("#username");
+username.innerHTML = `Hi ${getUser.name}`;
+
 const setTitle = (event) => {
   newPost.title = event.target.value;
 };
@@ -14,14 +19,12 @@ const setDesc = (event) => {
 
 const setImage = (event) => {
   newPost.photo = event.targe.value;
-}
-
+};
 
 const submitPost = async (event) => {
   event.preventDefault();
   try {
-
-    if(blogId){
+    if (blogId) {
       const response = await fetch(`/api/v1/posts/${blogId}`, {
         method: "put",
         body: JSON.stringify(newPost),
@@ -32,8 +35,7 @@ const submitPost = async (event) => {
           )}`,
         },
       });
-    }
-    else{
+    } else {
       const response = await fetch("/api/v1/posts/create", {
         method: "post",
         body: JSON.stringify(newPost),
@@ -56,27 +58,23 @@ const submitPost = async (event) => {
   // }
 };
 
-
-
 let baseUrl = "/api/v1";
 
 const url = new URL(window.location.href);
-const blogId =  url.searchParams.get("blogid");
-async function loadBlog(){
-    if(blogId){
-      const response = await fetch(`${baseUrl}/posts/${blogId}`, {
-          method: "get",
-          headers: {
-              'Content-Type': 'application/json'
-          },
-      })
+const blogId = url.searchParams.get("blogid");
+async function loadBlog() {
+  if (blogId) {
+    const response = await fetch(`${baseUrl}/posts/${blogId}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-      const blog = await response.json();
+    const blog = await response.json();
 
-      document.getElementById("title").value = blog.title;
-      document.getElementById("description").value = blog.desc;
-      newPost = blog;
-    }
-
+    document.getElementById("title").value = blog.title;
+    document.getElementById("description").value = blog.desc;
+    newPost = blog;
+  }
 }
-
