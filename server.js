@@ -17,7 +17,7 @@ app.use(express.static("./client/public"));
 
 app.use(morgan("dev"));
 
-mongoose.connect(process.env.MONGO_URI, (error) => {
+mongoose.connect(process.env.MONGO_URL, (error) => {
   if (error) {
     console.log("There was an error", error);
   } else {
