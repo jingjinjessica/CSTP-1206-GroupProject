@@ -100,7 +100,7 @@ const getAllUsers = async (request, response) => {
 const editProfile = async(request, response) => {
   const user = request.body;
 
-  const updateClause = {$set: {avatar: user.imageData, name: user.name}};
+  const updateClause = {$set: {avatar: user.avatar, name: user.name}};
   if(user.password){
     const encryptPassword = await bcrypt.hash(user.password, 10);
     updateClause["$set"]["password"] = encryptPassword;

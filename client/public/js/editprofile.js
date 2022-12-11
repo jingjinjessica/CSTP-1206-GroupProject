@@ -119,6 +119,12 @@ const submitProfileForm = async (event) => {
         alert("The new password does not match confirmed password, please try again");
         return false;
     }
+    const hidden = document.getElementById("imageData");
+    if(hidden.value){
+        user.avatar = hidden.value;
+    }
+
+    console.info(user);
     
     try {
       const response = await fetch(`${baseUrl}/editprofile`, {

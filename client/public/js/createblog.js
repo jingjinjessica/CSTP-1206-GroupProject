@@ -34,3 +34,8 @@ const submitPost = async (event) => {
   //   alert("Password doesn't match.");
   // }
 };
+
+
+function loadBlog(){
+  
+}
