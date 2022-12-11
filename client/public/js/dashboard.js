@@ -9,8 +9,13 @@
 
 // const getUser = JSON.parse(localStorage.getItem("user"));
 
+<<<<<<< HEAD
 // const username = document.querySelector("#username");
 // username.innerHTML = `Hello ${getUser.name}`;
+=======
+const username = document.querySelector("#username");
+username.innerHTML = `Hi ${getUser.name}`;
+>>>>>>> 8c751cde115264e5daf2fdf353c8f85f289e48d5
 
 const showListOfPosts = async () => {
   const response = await fetch("/api/v1/posts");
