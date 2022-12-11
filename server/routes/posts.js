@@ -10,6 +10,15 @@ const {
   getPostById,
 } = require("../controller/post");
 
+const { uploadImage } = require("../controller/image");
+
+router.post(
+  "/image/upload",
+  validateToken,
+  multer.single("image"),
+  uploadImage
+);
+
 router.get("/", getAllPosts);
 
 router.post("/create", validateToken, createPost);
