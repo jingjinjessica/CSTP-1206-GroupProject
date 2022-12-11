@@ -89,6 +89,7 @@ const submitPost = async (event) => {
   //   alert("Password doesn't match.");
   // }
 };
+function loadBlog() {}
 
 // let baseUrl = "/api/v1";
 

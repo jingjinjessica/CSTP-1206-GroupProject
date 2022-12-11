@@ -7,15 +7,10 @@
   }
 })();
 
-// const getUser = JSON.parse(localStorage.getItem("user"));
+const getUser = JSON.parse(localStorage.getItem("user"));
 
-<<<<<<< HEAD
-// const username = document.querySelector("#username");
-// username.innerHTML = `Hello ${getUser.name}`;
-=======
 const username = document.querySelector("#username");
 username.innerHTML = `Hi ${getUser.name}`;
->>>>>>> 8c751cde115264e5daf2fdf353c8f85f289e48d5
 
 const showListOfPosts = async () => {
   const response = await fetch("/api/v1/posts");
@@ -27,6 +22,14 @@ const showListOfPosts = async () => {
     const div = document.createElement("div");
     div.classList.add("card");
 
+    const imgLink = document.createElement("a");
+    imgLink.setAttribute("href", `/api/v1/posts/${finalOutput.data[i]._id}`);
+    const image = document.createElement("img");
+    image.setAttribute("src", finalOutput.data[i].photo);
+
+    imgLink.appendChild(image);
+    div.appendChild(imgLink);
+
     const h3 = document.createElement("h3");
     h3.textContent = finalOutput.data[i].title;
 
@@ -37,10 +40,10 @@ const showListOfPosts = async () => {
 
     div.appendChild(h4);
 
-    const p = document.createElement("p");
-    p.textContent = finalOutput.data[i].desc;
+    // const p = document.createElement("p");
+    // p.textContent = finalOutput.data[i].desc;
 
-    div.appendChild(p);
+    // div.appendChild(p);
 
     console.log(div);
 
