@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+
+</head>
+
+<body>
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <img class="logo" src="./image/logo.png" alt="logo">
+    </a>
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li class="blogs"><a href="./index.html" class="nav-link px-5 link-secondary">Blogs</a></li>
+      <li class="create"><a href="./createblog.html" class="nav-link px-5 link-dark">Create</a></li>
+      <li class="profile"><a href="./editprofile.html" class="nav-link px-5 link-dark">Profile</a></li>
+    </ul>
+    <div class="col-md-3 text-end">
+      <img src="" id="profile-image" alt="user-photo" class="user-photo">
+      <h1 id="username"></h1>
+      
+    </div>
+  </header>
+  <script>
+    let postDel = '<%= post%>'
+    console.log('postDel',postDel);
+
+    async function deletePost() {
+      try {
+        const response = await fetch(`/api/v1/posts/delete/${postDel._id}`, {
+          method: "delete",
+          body: JSON.stringify(postDel),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        if (response) {
+          console.log('post deleted');
+          window.location.href = "/dashboard.html";
+        }
+      } catch (error) {
+        console.log(error);
+    }
+    }
+
+  </script>
+  
+  <div>
+    <img src="<%= post.photo %>" alt="">
+  </div>
+  <div>
+    <h1> <%= post.title %>  </h1>
+    <h2> <%= post.categories %> </h2>
+    <p> <%= post.desc %> </p>
+  </div>
+    <button>Edit</button>
+    <button onclick="deletePost()"> Delete </button>
+
+    
+</body>
+</html>

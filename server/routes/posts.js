@@ -9,7 +9,7 @@ const {
   getAllPosts,
   updatePost,
   deletePost,
-  getPostById,
+  // getPostById,
 } = require("../controller/post");
 
 const { uploadImage } = require("../controller/image");
@@ -25,10 +25,23 @@ router.get("/", getAllPosts);
 
 router.post("/create", validateToken, createPost);
 
-router.get("/:id", getPostById);
+// router.get("/:id", getPostById);
 
 router.put("/:id", validateToken, updatePost);
 
-router.delete("/:id", validateToken, deletePost);
+router.delete("/delete/:id", validateToken, deletePost);
+
+// router.get("/:blogid", function (req, res, next) {
+//   const { blogid } = req.params;
+
+//   const blog = data.find((value) => value.blogid === blogid);
+//   if (!blog) {
+//     throw new Error("blog not found.");
+//   }
+
+//   res.render("[blogid]", {
+//     ...blog,
+//   });
+// });
 
 module.exports = router;

@@ -115,19 +115,19 @@ const getAllPosts = async (request, response) => {
 };
 
 //get post by id
-const getPostById = async (request, response) => {
-  try {
-    const post = await Post.findById(request.params.id);
-    response.status(200).json(post);
-  } catch (error) {
-    response.status(500).json(error);
-  }
-};
+// const getPostById = async (request, response) => {
+//   try {
+//     const post = await Post.findById(request.params.id);
+//     response.status(200).json(post);
+//   } catch (error) {
+//     response.status(500).json(error);
+//   }
+// };
 
 module.exports = {
   createPost,
   updatePost,
   deletePost,
   getAllPosts,
-  getPostById,
+  // getPostById,
 };
