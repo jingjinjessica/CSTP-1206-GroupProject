@@ -31,20 +31,29 @@ const showListOfPosts = async () => {
     imgLink.appendChild(image);
     div.appendChild(imgLink);
 
+    const h2 = document.createElement("h2");
+    h2.textContent = finalOutput.data[i].title;
+
+    div.appendChild(h2);
+
     const h3 = document.createElement("h3");
-    h3.textContent = finalOutput.data[i].title;
+    h3.textContent = finalOutput.data[i].categories;
 
     div.appendChild(h3);
 
-    const h4 = document.createElement("h4");
-    h4.textContent = finalOutput.data[i].categories;
+    console.log(finalOutput.data[i].createdAt);
+    const date = new Date(finalOutput.data[i].createdAt);
+    const dateFormat =
+      "Create date: " +
+      date.getFullYear() +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate();
+    const p = document.createElement("h4");
+    p.textContent = dateFormat;
 
-    div.appendChild(h4);
-
-    // const p = document.createElement("p");
-    // p.textContent = finalOutput.data[i].desc;
-
-    // div.appendChild(p);
+    div.appendChild(p);
 
     console.log(div);
 
