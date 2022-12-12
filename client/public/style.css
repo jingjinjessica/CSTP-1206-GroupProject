@@ -36,9 +36,17 @@ header {
   border: 3px solid #6F1D1B;
 }
 
-.user-name {
+.username {
   padding-left: 10px;
   padding-right: 30px;
+  border: none;
+  background: #FFE8D6;
+  width: 120px;
+}
+
+.dropdown-menu {
+  background: rgba(255, 255, 255, .5);
+  border: none;
 }
 
 /* Footer */
