@@ -6,6 +6,102 @@
   <title>Blog</title>
 
 </head>
+<script>
+    const postDel = {
+      _id: "<%= post._id %>",
+      title: "<%= post.title %>",
+      categories: "<%= post.categories %>",
+      desc: "<%= post.desc %>",
+      photo: "<%= post.photo %>",
+      userID: "<%= post.userID %>",
+      createdAt: "<%= post.createdAt %>",
+      updatedAt: "<%= post.updatedAt %>"
+    }
+
+  console.log('postDel',postDel);
+
+  async function editPost(){
+    console.log("edit clicked");
+    document.getElementById("title").style.border = "solid"
+    document.getElementById("desc").style.border = "solid"
+    document.getElementById("category").style.border = "solid"
+    document.getElementById("title").removeAttribute("disabled") 
+    document.getElementById("desc").removeAttribute("disabled") 
+    document.getElementById("category").removeAttribute("disabled") 
+    document.getElementById("editBtn").innerText = "Save"
+
+    const setTitle = (event) => {
+      postDel.title = event.target.value;
+      console.log(setTitle);
+    };
+
+    const setDesc = (event) => {
+        postDel.desc = event.target.value;
+        console.log(setDesc);
+    };
+
+    const setCat = (event) => {
+        postDel.desc = event.target.value;
+        console.log(setCat);
+    };
+
+    function savePost(){
+      console.log("saved post");
+      postDel.titile = document.getElementById("title").value;
+      postDel.desc = document.getElementById("desc").value;
+      postDel.categories = document.getElementById("category").value;
+
+      savePost();
+    }
+    
+
+    try{
+      const response = await fetch(`/api/v1/posts/${postDel._id}`,{
+        method: "put",
+        body: JSON.stringify(postDel),
+        headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("access-token")
+          )}`,
+          },
+      });
+      if (response) {
+        console.log('post updated');
+        //window.location.href = "/dashboard.html";
+      }
+    } catch (error) {
+      console.log(error);
+  }
+      }
+    
+
+  
+
+
+  async function deletePost() {
+    try {
+      const response = await fetch(`/api/v1/posts/delete/${postDel._id}`, {
+        method: "delete",
+        body: JSON.stringify(postDel),
+        headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("access-token")
+          )}`,
+          },
+      });
+      if (response) {
+        console.log('post deleted');
+        window.location.href = "/dashboard.html";
+      }
+    } catch (error) {
+      console.log(error);
+  }
+  }
+
+</script>
+
 
 <body>
   <header
@@ -24,41 +120,20 @@
       
     </div>
   </header>
-  <script>
-    let postDel = '<%= post%>'
-    console.log('postDel',postDel);
-
-    async function deletePost() {
-      try {
-        const response = await fetch(`/api/v1/posts/delete/${postDel._id}`, {
-          method: "delete",
-          body: JSON.stringify(postDel),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
-        if (response) {
-          console.log('post deleted');
-          window.location.href = "/dashboard.html";
-        }
-      } catch (error) {
-        console.log(error);
-    }
-    }
-
-  </script>
   
   <div>
     <img src="<%= post.photo %>" alt="">
   </div>
   <div>
-    <h1> <%= post.title %>  </h1>
-    <h2> <%= post.categories %> </h2>
-    <p> <%= post.desc %> </p>
+    <input id="title" type="text" size="50" value="<%=post.title %>" style=border:none onchange="setTitle(event)" disabled >
+    <br>
+    <input id="desc" type="text" size="1000" value="<%=post.desc %>" style=border:none onchange="setDesc(event)" disabled>
+    <br>
+    <input id="category" type="text" size="20" value="<%=post.categories %>" style=border:none onchange="setCat(event)" disabled>
   </div>
-    <button>Edit</button>
-    <button onclick="deletePost()"> Delete </button>
+    <button id="editBtn" onclick="editPost()">Edit</button>
+    <button id="delBtn" hidden onclick="deletePost()">Delete</button>
 
-    
+   
 </body>
 </html>
