@@ -7,11 +7,6 @@
   }
 })();
 
-const getUser = JSON.parse(localStorage.getItem("user"));
-
-const username = document.querySelector("#username");
-username.innerHTML = `Hi ${getUser.name}`;
-
 const showListOfPosts = async () => {
   const response = await fetch("/api/v1/posts");
   const finalOutput = await response.json();
@@ -29,7 +24,6 @@ const showListOfPosts = async () => {
 
     let cardImg = document.createElement("img");
     cardImg.classList.add("card-img-top");
-    cardImg.setAttribute("id", "card-img");
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     let cardTitle = document.createElement("h5");
@@ -46,10 +40,12 @@ const showListOfPosts = async () => {
     column.appendChild(card);
     card.appendChild(cardImg);
     const imgLink = document.createElement("a");
+    imgLink.classList.add("img-link");
     imgLink.setAttribute("href", `/${finalOutput.data[i]._id}`);
     cardImg.setAttribute("src", finalOutput.data[i].photo);
     cardImg.setAttribute("width", 200);
     cardImg.setAttribute("height", 250);
+    cardImg.appendChild(imgLink);
     card.appendChild(cardBody);
     cardBody.appendChild(cardTitle);
     cardTitle.textContent = finalOutput.data[i].title;
@@ -75,12 +71,3 @@ const showListOfPosts = async () => {
 
 showListOfPosts();
 
-const logout = () => {
-  // Ideally we should another API for loging the user out, so that we can destroy the access-token
-
-  alert("Succesfully logged out!");
-  localStorage.removeItem("access-token");
-  localStorage.removeItem("user");
-
-  window.location.href = "/index.html";
-};
