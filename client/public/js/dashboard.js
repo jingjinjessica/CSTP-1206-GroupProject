@@ -14,7 +14,6 @@ const showListOfPosts = async () => {
   const getPostView = document.querySelector("#postsview");
 
   for (let i = 0; i < finalOutput.data.length; i++) {
-
     // let row = document.createElement("div");
     // row.classList.add("row");
     let column = document.createElement("div");
@@ -22,8 +21,6 @@ const showListOfPosts = async () => {
     let card = document.createElement("div");
     card.classList.add("card");
 
-    let cardImg = document.createElement("img");
-    cardImg.classList.add("card-img-top");
     let cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     let cardTitle = document.createElement("h5");
@@ -36,16 +33,19 @@ const showListOfPosts = async () => {
     dateIcon.classList.add("date-icon");
     dateIcon.setAttribute("src", "./image/icon-calendar.png");
     let nextLine = document.createElement("br");
-    
+
     column.appendChild(card);
-    card.appendChild(cardImg);
     const imgLink = document.createElement("a");
     imgLink.classList.add("img-link");
     imgLink.setAttribute("href", `/${finalOutput.data[i]._id}`);
+    const cardImg = document.createElement("img");
+    cardImg.classList.add("card-img-top");
     cardImg.setAttribute("src", finalOutput.data[i].photo);
     cardImg.setAttribute("width", 200);
     cardImg.setAttribute("height", 250);
-    cardImg.appendChild(imgLink);
+    imgLink.appendChild(cardImg);
+    cardBody.appendChild(imgLink);
+
     card.appendChild(cardBody);
     cardBody.appendChild(cardTitle);
     cardTitle.textContent = finalOutput.data[i].title;
@@ -70,4 +70,3 @@ const showListOfPosts = async () => {
 };
 
 showListOfPosts();
-
