@@ -1,20 +1,24 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Profile</title>
+  <title>Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./layout.css">
+  <link rel="stylesheet" href="./dashboard.css">
   <script src="./js/common.js"></script>
   <script src="./js/dashboard.js" defer></script>
 </head>
+
 <body>
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
       <img class="logo" src="./image/logo.png" alt="logo">
     </a>
@@ -36,22 +40,19 @@
       </ul>
     </div>
   </header>
-
-    <!-- <i class="fa-solid fa-user"></i> -->
-    
-    <!-- <div class="menu-container">
-        
-        <div>
-            <button class="logout-button" onclick="logout()">logout</button>
-        </div>
-    </div> -->
-
-    <div id="postsview">
+  <div class="container">
+    <div class="row" id="postsview"></div>
+  </div>
+  <footer>
+    <div class="footer-bottom">
+      <span> Copyright @2022 All rights reserved</span><br>
+      <span>made with <img src="./image/footer-icon.png" /> by girley3</span>
     </div>
-
+  </footer>
 </body>
 
 <script type="text/javascript">
   loadProfileAvatar();
 </script>
+
 </html>
