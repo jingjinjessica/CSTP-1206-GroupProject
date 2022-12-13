@@ -35,7 +35,7 @@
     document.getElementById("desc").removeAttribute("disabled") 
     document.getElementById("category").removeAttribute("disabled") 
     document.getElementById("editBtn").innerText = "Save"
-
+    
     const setTitle = (event) => {
       postDel.title = event.target.value;
       console.log(setTitle);
@@ -153,8 +153,8 @@
           </div>
           <div class="w-100"></div>
           <div class="col submit-btn">
-            <button id="editBtn" onclick="editPost()">Edit</button>
-            <button id="delBtn" hidden onclick="deletePost()">Delete</button>
+            <button class="btn save" id="editBtn" onclick="editPost()">Edit</button>
+            <button class="btn save" id="delBtn" hidden onclick="deletePost()">Delete</button>
           </div>   
         </div> 
       </div>  
