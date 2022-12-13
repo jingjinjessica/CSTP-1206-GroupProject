@@ -1,8 +1,13 @@
 function loadProfileAvatar(){
     const curUser = JSON.parse(localStorage.getItem("user"));
     document.getElementById("profile-image").src = curUser.avatar?curUser.avatar:"./image/user-photo.jpg";
-    document.getElementById("userName").value= curUser.name;
+    setElementValue("userName",curUser.name);
+    user = curUser;
   
+}
+
+function setElementValue(id, value){
+    document.getElementById(id).value = value;
 }
 
 const logout = () => {

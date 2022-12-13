@@ -3,11 +3,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Edit Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./style.css">
   <script src="./js/common.js"></script>
   <script src="./js/dashboard.js" defer></script>
-  
 </head>
 <body>
   <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -21,7 +25,7 @@
     </ul>
     <div class="col-md-3 text-end">
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><img src="./image/user-photo.jpg" alt="user-photo" class="user-photo"></li>
+        <li><img src="./image/user-photo.jpg" alt="user-photo" class="user-photo" id="profile-image"></li>
         <li class="nav-item dropdown">
           <span class="nav-link dropdown-toggle" id="logout" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">Hi, <input class="username" type="text" id="userName" readonly="true"></span>

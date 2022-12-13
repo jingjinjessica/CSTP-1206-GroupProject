@@ -85,7 +85,7 @@ function loadProfile(){
     const curUser = JSON.parse(localStorage.getItem("user"));
     setElementValue("InputUsername", curUser.name);
     setElementValue("InputEmail", curUser.email);
-    setElementValue("userName",curUser.name);
+    // setElementValue("userName",curUser.name);
     user = curUser;
     user.password = "";
 }
