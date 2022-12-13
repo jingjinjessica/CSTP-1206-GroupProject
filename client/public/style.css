@@ -150,7 +150,7 @@ footer img {
 
 /* drop down selection */
 select {
-  margin-top: 10px;
+  margin-top: 3px;
   border: #6F1D1B solid 1px;
   margin-left: -12px;
   padding-left: 5px;
@@ -185,6 +185,16 @@ select {
   margin-right: 100px;
   width:300px;
   height: 60px;
+}
+.category1 {
+  margin-right: 100px;
+  width:300px;
+  height: 60px;
+}
+.category1 span {
+  color: #A44A3F;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .description span {

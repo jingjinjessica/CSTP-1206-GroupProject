@@ -104,26 +104,31 @@
 
   
 //delete button
-
-  async function deletePost() {
-    try {
-      const response = await fetch(`/api/v1/posts/delete/${postDel._id}`, {
-        method: "delete",
-        body: JSON.stringify(postDel),
-        headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("access-token")
-          )}`,
-          },
-      });
-      if (response) {
-        console.log('post deleted');
-        window.location.href = "/dashboard.html";
+  
+    async function deletePost() {
+      var result = confirm("Want to delete?");
+      if(result)
+      {
+        try {
+          const response = await fetch(`/api/v1/posts/delete/${postDel._id}`, {
+            method: "delete",
+            body: JSON.stringify(postDel),
+            headers: {
+                "Content-type": "application/json",
+                Authorization: `Bearer ${JSON.parse(
+                  localStorage.getItem("access-token")
+              )}`,
+              },
+          });
+          if (response) {
+            console.log('post deleted');
+            window.location.href = "/dashboard.html";
+          }
+        } catch (error) {
+          console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-  }
+
+    }
   }
 
 </script>
@@ -180,7 +185,7 @@
           <div class="col submit-btn">
 
             <button id="editBtn" class="btn" onclick="editPost()">Edit</button>
-            <button id="delBtn" class="btn" onclick="deletePost()">Delete</button>
+            <button id="delBtn" class="btn" onclick="deletePost(event)">Delete</button>
 
           </div>   
         </div> 
