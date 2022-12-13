@@ -28,6 +28,7 @@
 
   console.log('postDel',postDel);
 
+
   /**
    * set inputs style base on isEditing
    */
@@ -44,6 +45,7 @@
       document.getElementById("title").setAttribute("disabled", "disabled") 
       document.getElementById("desc").setAttribute("disabled", "disabled") 
       document.getElementById("editBtn").innerText = "Edit"
+
     }
   }
 
@@ -171,8 +173,10 @@
           </div>
           <div class="w-100"></div>
           <div class="col submit-btn">
+
             <button id="editBtn" onclick="editPost()">Edit</button>
             <button id="delBtn" onclick="deletePost()">Delete</button>
+
           </div>   
         </div> 
       </div>  
