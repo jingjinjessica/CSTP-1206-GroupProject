@@ -59,12 +59,12 @@ const showListOfPosts = async () => {
 
 showListOfPosts();
 
-const logout = () => {
-  // Ideally we should another API for loging the user out, so that we can destroy the access-token
+// const logout = () => {
+//   // Ideally we should another API for loging the user out, so that we can destroy the access-token
 
-  alert("Succesfully logged out!");
-  localStorage.removeItem("access-token");
-  localStorage.removeItem("user");
+//   alert("Succesfully logged out!");
+//   localStorage.removeItem("access-token");
+//   localStorage.removeItem("user");
 
-  window.location.href = "/index.html";
-};
+//   window.location.href = "/index.html";
+// };

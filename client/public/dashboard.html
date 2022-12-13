@@ -10,8 +10,7 @@
   
 </head>
 <body>
-  <header
-    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
       <img class="logo" src="./image/logo.png" alt="logo">
     </a>
@@ -21,20 +20,27 @@
       <li class="profile"><a href="./editprofile.html" class="nav-link px-5 link-dark">Profile</a></li>
     </ul>
     <div class="col-md-3 text-end">
-      <img src="./image/user-photo.jpg" id="profile-image" alt="user-photo" class="user-photo">
-      <h3 id="username"></h3>
-      
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><img src="./image/user-photo.jpg" alt="user-photo" class="user-photo"></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link dropdown-toggle" id="logout" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Hi, <input class="username" type="text" id="userName" readonly="true"></span>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </header>
 
     <!-- <i class="fa-solid fa-user"></i> -->
     
-    <div class="menu-container">
+    <!-- <div class="menu-container">
         
         <div>
             <button class="logout-button" onclick="logout()">logout</button>
         </div>
-    </div>
+    </div> -->
 
     <div id="postsview">
     </div>
