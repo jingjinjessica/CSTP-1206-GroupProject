@@ -1,8 +1,8 @@
 /* main */
 .create-area {
     border: 5px solid #6F1D1B;
-    margin-top: 200px;
-    margin-bottom: 50px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     padding: 10px;
     border-radius: 25px;
     height: 620px;
@@ -172,4 +172,15 @@ select {
 
 .cancel {
     margin-right: 15px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .create-area {
+        border: 5px solid #6F1D1B;
+        margin-top: 200px;
+        margin-bottom: 50px;
+        padding: 10px;
+        border-radius: 25px;
+        height: 620px;
+    }
 }

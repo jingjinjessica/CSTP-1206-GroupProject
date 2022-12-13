@@ -121,7 +121,7 @@ const editProfile = async(request, response) => {
       data
     })
   }).catch((error) => {
-     return res.status(500). json({
+     return response.status(500). json({
        message: "fail to update user",
        error
      })

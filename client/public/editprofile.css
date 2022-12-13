@@ -82,8 +82,10 @@ footer img {
 .form-container {
     /* height: 100%; */
     width: 30%;
-    margin-top: 150px;
-    margin-bottom: 150px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 730px;
+    margin-right: 730px;
     justify-content: center;
     align-items: center;
 }
@@ -204,4 +206,14 @@ input[type="file"] {
 .btn:hover {
     color: #e76f51 !important;
     background-color: #f9dcc4 !important;
+}
+@media only screen and (max-width: 1200px) {
+    .form-container {
+        /* height: 100%; */
+        width: 30%;
+        margin-top: 150px;
+        margin-bottom: 150px;
+        justify-content: center;
+        align-items: center;
+    }
 }
