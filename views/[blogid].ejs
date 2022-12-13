@@ -35,6 +35,7 @@
    */
   function setInputStyle() {
     if (isEditing) {
+      // boder 1px
       document.getElementById("title").style.border = "solid"
       document.getElementById("desc").style.border = "solid"
       document.getElementById("title").removeAttribute("disabled") 
@@ -93,7 +94,7 @@
     });
     if (response) {
         console.log('post saved');
-        window.location.href = "/dashboard.html";
+        // window.location.href = "/dashboard.html";
       }
     else {
       const { message} = await response.json();
@@ -107,7 +108,7 @@
 //delete button
   
     async function deletePost() {
-      var result = confirm("Want to delete?");
+      var result = confirm("Confirm to delete this Blog?");
       if(result)
       {
         try {
