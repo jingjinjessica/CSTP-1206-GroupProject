@@ -82,7 +82,8 @@ footer img {
 .form-container {
     /* height: 100%; */
     width: 30%;
-    /* display: flex; */
+    margin-top: 150px;
+    margin-bottom: 150px;
     justify-content: center;
     align-items: center;
 }

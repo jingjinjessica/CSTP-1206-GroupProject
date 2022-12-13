@@ -108,6 +108,10 @@ const setEmail = (event) => {
 const setPassword = (event) => {
   user.password = event.target.value;
 };
+
+// const setcmPassword = (event) => {
+//     user.cmpassword = event.target.value;
+//   };
 // const getUser = JSON.parse(localStorage.getItem("user"));
 
 // const username = document.querySelector("#username");
@@ -118,7 +122,7 @@ const setPassword = (event) => {
 const submitProfileForm = async (event) => {
     event.preventDefault();
     //console.log(user);
-    if(user.password && user.password !== document.getElementById("InputPassword2").value){
+    if(user.password && user.password !== document.getElementById("InputPassword2").value&&document.getElementById("InputPassword1").value){
         alert("The new password does not match confirmed password, please try again");
         return false;
     }

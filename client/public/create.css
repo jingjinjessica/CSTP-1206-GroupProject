@@ -1,6 +1,8 @@
 /* main */
 .create-area {
     border: 5px solid #6F1D1B;
+    margin-top: 200px;
+    margin-bottom: 50px;
     padding: 10px;
     border-radius: 25px;
     height: 620px;
@@ -96,7 +98,7 @@ select {
     font-size: 12px;
     color: #e76f51;
 }
-
+/* view and edit */
 .category span {
     color: #A44A3F;
     font-size: 20px;
@@ -106,12 +108,13 @@ select {
 .category {
     border-radius: 10px;
     border: #6F1D1B solid 1px;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-right: 100px;
     width: 300px;
-    height: 60px;
+    height: 35px;
 }
 
+/* create page */
 .category1 {
     margin-right: 100px;
     width: 300px;
