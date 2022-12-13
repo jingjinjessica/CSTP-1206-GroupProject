@@ -19,26 +19,43 @@ const showListOfPosts = async () => {
   const getPostView = document.querySelector("#postsview");
 
   for (let i = 0; i < finalOutput.data.length; i++) {
-    const div = document.createElement("div");
-    div.classList.add("card");
 
+    // let row = document.createElement("div");
+    // row.classList.add("row");
+    let column = document.createElement("div");
+    column.classList.add("col-md-4");
+    let card = document.createElement("div");
+    card.classList.add("card");
+
+    let cardImg = document.createElement("img");
+    cardImg.classList.add("card-img-top");
+    cardImg.setAttribute("id", "card-img");
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    let cardTitle = document.createElement("h5");
+    cardTitle.classList.add("card-title");
+    let cardCategory = document.createElement("span");
+    cardCategory.classList.add("card-category");
+    let cardDate = document.createElement("label");
+    cardDate.classList.add("card-date");
+    let dateIcon = document.createElement("img");
+    dateIcon.classList.add("date-icon");
+    dateIcon.setAttribute("src", "./image/icon-calendar.png");
+    let nextLine = document.createElement("br");
+    
+    column.appendChild(card);
+    card.appendChild(cardImg);
     const imgLink = document.createElement("a");
     imgLink.setAttribute("href", `/${finalOutput.data[i]._id}`);
-    const image = document.createElement("img");
-    image.setAttribute("src", finalOutput.data[i].photo);
-
-    imgLink.appendChild(image);
-    div.appendChild(imgLink);
-
-    const h2 = document.createElement("h2");
-    h2.textContent = finalOutput.data[i].title;
-
-    div.appendChild(h2);
-
-    const h3 = document.createElement("h3");
-    h3.textContent = finalOutput.data[i].categories;
-
-    div.appendChild(h3);
+    cardImg.setAttribute("src", finalOutput.data[i].photo);
+    cardImg.setAttribute("width", 200);
+    cardImg.setAttribute("height", 250);
+    card.appendChild(cardBody);
+    cardBody.appendChild(cardTitle);
+    cardTitle.textContent = finalOutput.data[i].title;
+    cardBody.appendChild(cardCategory);
+    cardCategory.textContent = finalOutput.data[i].categories;
+    cardBody.appendChild(nextLine);
 
     const date = new Date(finalOutput.data[i].createdAt);
     const dateFormat =
@@ -48,23 +65,22 @@ const showListOfPosts = async () => {
       (date.getMonth() + 1) +
       "-" +
       date.getDate();
-    const p = document.createElement("h4");
-    p.textContent = dateFormat;
+    cardBody.appendChild(cardDate);
+    cardDate.appendChild(dateIcon);
+    cardDate.textContent = dateFormat;
 
-    div.appendChild(p);
-
-    getPostView.appendChild(div);
+    getPostView.appendChild(column);
   }
 };
 
 showListOfPosts();
 
-// const logout = () => {
-//   // Ideally we should another API for loging the user out, so that we can destroy the access-token
+const logout = () => {
+  // Ideally we should another API for loging the user out, so that we can destroy the access-token
 
-//   alert("Succesfully logged out!");
-//   localStorage.removeItem("access-token");
-//   localStorage.removeItem("user");
+  alert("Succesfully logged out!");
+  localStorage.removeItem("access-token");
+  localStorage.removeItem("user");
 
-//   window.location.href = "/index.html";
-// };
+  window.location.href = "/index.html";
+};
