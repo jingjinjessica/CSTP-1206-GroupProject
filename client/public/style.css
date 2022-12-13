@@ -75,7 +75,7 @@ footer img {
   border: 5px solid #6F1D1B;
   padding: 10px;
   border-radius: 25px;
-  height: 580px;
+  height: 620px;
 }
 
 /* upload image */
@@ -125,7 +125,7 @@ footer img {
 }
 
 .title span {
-  margin-left: 40px;
+  /* margin-left: 40px; */
   padding-right: 10px;
   color: #A44A3F;
   font-size: 20px;
@@ -135,7 +135,6 @@ footer img {
 .title input {
   width: 400px;
   margin-top: 24px;
-
 }
 
 /* drop down selection */
@@ -162,10 +161,25 @@ select {
   font-size: 12px;
   color: #e76f51;
 }
+.category span {
+  color: #A44A3F;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.category {
+  border-radius: 10px;
+  border: #6F1D1B solid 1px;
+  margin-top: 10px;
+  margin-right: 100px;
+  width:300px;
+  height: 60px;
+}
 
 .description span {
   color: #A44A3F;
   font-size: 20px;
+  font-weight: 500;
 }
 
 .description {
@@ -181,6 +195,11 @@ select {
   margin: 5px 25px;
   border-radius: 10px;
   border: #6F1D1B solid 1px;
+}
+
+.title input {
+  width: 400px;
+  margin-top: 24px;
 }
 
 .submit-btn {

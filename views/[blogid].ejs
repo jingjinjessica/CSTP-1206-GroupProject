@@ -90,7 +90,11 @@
         )}`,
       },
     });
-    if (!response.ok) {
+    if (response) {
+        console.log('post saved');
+        window.location.href = "/dashboard.html";
+      }
+    else {
       const { message} = await response.json();
       throw new Error(message);
     }
@@ -163,19 +167,20 @@
             <input id="title" type="text" size="50" value="<%=post.title %>" style=border:none  disabled >
           </div>
           <div class="w-100"></div>
-          <div>
-            <span>Category: </span><br>
+          <div class="col category">
+            <span>Category: </span>
             <input id="category" type="text" size="20" value="<%= post.categories %>" style=border:none disabled >
           </div>
+          <div class="w-100"></div>
           <div class="col description">
             <span>Description: </span><br>
-            <input id="desc" type="text" size="1000" value="<%=post.desc %>" style=border:none  disabled>
+            <input id="desc" type="text" size="60"  value="<%=post.desc %>" style=border:none  disabled>
           </div>
           <div class="w-100"></div>
           <div class="col submit-btn">
 
-            <button id="editBtn" onclick="editPost()">Edit</button>
-            <button id="delBtn" onclick="deletePost()">Delete</button>
+            <button id="editBtn" class="btn" onclick="editPost()">Edit</button>
+            <button id="delBtn" class="btn" onclick="deletePost()">Delete</button>
 
           </div>   
         </div> 
