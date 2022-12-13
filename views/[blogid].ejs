@@ -24,63 +24,80 @@
       updatedAt: "<%= post.updatedAt %>"
     }
 
+    let isEditing = false;
+
   console.log('postDel',postDel);
 
-  async function editPost(){
-    console.log("edit clicked");
-
-    document.getElementById("title").removeAttribute("disabled") 
-    document.getElementById("desc").removeAttribute("disabled") 
-    document.getElementById("editBtn").innerText = "Save"
-
-    const setTitle = (event) => {
-      postDel.title = event.target.value;
-      console.log(setTitle);
-    };
-
-    const setDesc = (event) => {
-        postDel.desc = event.target.value;
-        console.log(setDesc);
-    };
-
-    const setCat = (event) => {
-        postDel.desc = event.target.value;
-        console.log(setCat);
-    };
-
-    function savePost(){
-      console.log("saved post");
-      postDel.titile = document.getElementById("title").value;
-      postDel.desc = document.getElementById("desc").value;
-      postDel.categories = document.getElementById("category").value;
-
-      savePost();
+  /**
+   * set inputs style base on isEditing
+   */
+  function setInputStyle() {
+    if (isEditing) {
+      document.getElementById("title").style.border = "solid"
+      document.getElementById("desc").style.border = "solid"
+      document.getElementById("title").removeAttribute("disabled") 
+      document.getElementById("desc").removeAttribute("disabled") 
+      document.getElementById("editBtn").innerText = "Save"
+    } else {
+      document.getElementById("title").style.border = "none"
+      document.getElementById("desc").style.border = "none"
+      document.getElementById("title").setAttribute("disabled", "disabled") 
+      document.getElementById("desc").setAttribute("disabled", "disabled") 
+      document.getElementById("editBtn").innerText = "Edit"
     }
-    
-
-    try{
-      const response = await fetch(`/api/v1/posts/${postDel._id}`,{
-        method: "put",
-        body: JSON.stringify(postDel),
-        headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("access-token")
-          )}`,
-          },
-      });
-      if (response) {
-        console.log('post updated');
-        //window.location.href = "/dashboard.html";
-      }
-    } catch (error) {
-      console.log(error);
   }
+
+  async function editPost() {
+    if (!isEditing) {
+      isEditing = true;
+      setInputStyle();
+    } else {
+      try {
+        //set postDel values
+        setPost();
+
+        //update the database
+        await updatePost();
+
+        //reset isEditing and input style
+        isEditing = false;
+        setInputStyle();
+      } catch (error) {
+        console.log(error);
       }
-    
+    }
+  }
+
+  function setPost(){
+    console.log("saved post");
+    postDel.title = document.getElementById("title").value;
+    postDel.desc = document.getElementById("desc").value;
+    postDel.categories = document.getElementById("category").value;
+    postDel.updatedAt = new Date();
+  }
+
+  //edit function
+  async function updatePost() {
+    const response = await fetch(`/api/v1/posts/${postDel._id}`,{
+      method: "put",
+      body: JSON.stringify(postDel),
+      headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("access-token")
+        )}`,
+      },
+    });
+    if (!response.ok) {
+      const { message} = await response.json();
+      throw new Error(message);
+    }
+
+    return response.json();
+  }
 
   
-
+//delete button
 
   async function deletePost() {
     try {

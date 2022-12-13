@@ -23,7 +23,6 @@ const showListOfPosts = async () => {
     div.classList.add("card");
 
     const imgLink = document.createElement("a");
-    // imgLink.setAttribute("href", `/api/v1/posts/${finalOutput.data[i]._id}`);
     imgLink.setAttribute("href", `/${finalOutput.data[i]._id}`);
     const image = document.createElement("img");
     image.setAttribute("src", finalOutput.data[i].photo);
@@ -41,7 +40,6 @@ const showListOfPosts = async () => {
 
     div.appendChild(h3);
 
-    console.log(finalOutput.data[i].createdAt);
     const date = new Date(finalOutput.data[i].createdAt);
     const dateFormat =
       "Create date: " +
@@ -54,8 +52,6 @@ const showListOfPosts = async () => {
     p.textContent = dateFormat;
 
     div.appendChild(p);
-
-    console.log(div);
 
     getPostView.appendChild(div);
   }
