@@ -1,51 +1,6 @@
 
 let user = {};
 let baseUrl = "/api/v1";
-// function validatePassword(checkEmpty=true){
-//     let pwd = document.getElementById("pwd").value;
-//     let cmpwd = document.getElementById("cmpwd").value;
-//     let userName = document.getElementById("username");
-//     let message = document.getElementById("message");
-//     if(userName === ""){
-//         return false;
-//     }
-//     if (pwd ==="" && cmpwd ==="" && !checkEmpty){
-//         return;
-//     }
-
-//     if (pwd !== cmpwd){
-//         message.innerText = "The passwords are not match.";
-//         return false;
-//     }
-
-//     if (pwd.length < 6){
-//         message.innerText = "The passwords at least 6 chars.";
-//         return false;
-//     }
-
-//     let specialChars = "_#$!%^<>?&*-+=(){}[]|:~@";
-//     let anyUpperCase = false;
-//     let anySpecialChar = false;
-//     for(let i = 0; i < pwd.length; i++){
-//         let c = pwd.charAt(i);
-//         if (c.charCodeAt(0) >= 65 && c.charCodeAt(0) <=90 ){
-//             anyUpperCase = true;
-//         }
-//         else if(specialChars.indexOf(c)>=0){
-//             anySpecialChar = true;
-//         }
-//     }
-//     if(!anyUpperCase){
-//         message.innerText = "The passwords at least 1 upper case char.";
-//         return false;
-//     }
-
-//     if(!anySpecialChar){
-//         message.innerText = "The passwords at least 1 special char as _#$!%^<>?&*-+=(){}[]|:~@";
-//         return false; 
-//     }
-//     return true;
-// };
 
 function addUploadListener(){
     document.getElementById("myImage").addEventListener('change', (e) =>{
@@ -108,15 +63,6 @@ const setEmail = (event) => {
 const setPassword = (event) => {
   user.password = event.target.value;
 };
-
-// const setcmPassword = (event) => {
-//     user.cmpassword = event.target.value;
-//   };
-// const getUser = JSON.parse(localStorage.getItem("user"));
-
-// const username = document.querySelector("#username");
-// username.innerHTML = `Hello ${getUser.name}`;
-
 
 
 const submitProfileForm = async (event) => {

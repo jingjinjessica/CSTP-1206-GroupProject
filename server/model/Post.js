@@ -15,16 +15,7 @@ const PostSchema = mongoose.Schema(
       type: String,
       required: false,
     },
-    // photo: {
-    //   public_id: {
-    //     type: String,
-    //     required: true,
-    //   },
-    //   url: {
-    //     type: String,
-    //     required: true,
-    //   },
-    // },
+   
     categories: {
       type: Array,
       required: false,

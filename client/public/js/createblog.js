@@ -22,10 +22,7 @@ const setImage = (event) => {
     imagePreview.src = imageURl;
   }
 };
-// const getUser = JSON.parse(localStorage.getItem("user"));
 
-// const username = document.querySelector("#username");
-// username.innerHTML = `Hello ${getUser.name}`;
 
 const submitPost = async (event) => {
   event.preventDefault();
@@ -85,29 +82,5 @@ const submitPost = async (event) => {
   } catch (error) {
     console.log(error);
   }
-  // } else {
-  //   alert("Password doesn't match.");
-  // }
+ 
 };
-function loadBlog() {}
-
-// let baseUrl = "/api/v1";
-
-// const url = new URL(window.location.href);
-// const blogId = url.searchParams.get("blogid");
-// async function loadBlog() {
-//   if (blogId) {
-//     const response = await fetch(`${baseUrl}/posts/${blogId}`, {
-//       method: "get",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     });
-
-//     const blog = await response.json();
-
-//     document.getElementById("title").value = blog.title;
-//     document.getElementById("description").value = blog.desc;
-//     newPost = blog;
-//   }
-// }

@@ -1,4 +1,5 @@
 function loadProfileAvatar(){
+    //User's name and avatar in header
     const curUser = JSON.parse(localStorage.getItem("user"));
     document.getElementById("profile-image").src = curUser.avatar?curUser.avatar:"./image/user-photo.jpg";
     setElementValue("userName",curUser.name);

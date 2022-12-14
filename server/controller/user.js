@@ -37,10 +37,7 @@ const loginUser = async (request, response) => {
     // Then we will check for password
 
     // This will be either true or false
-    const matchPassword = await bcrypt.compare(
-      data.password,
-      foundUser.password
-    );
+    const matchPassword = await bcrypt.compare(data.password,foundUser.password);
 
     if (matchPassword) {
       // We are trying to create an access token based on which the user will be able to interact with the website
@@ -50,19 +47,19 @@ const loginUser = async (request, response) => {
           name: foundUser.name,
         },
         process.env.SECRET_KEY
-      );
+      )
 
       return response.status(200).json({
         message: "User Succesfully Logged In",
         accessToken,
         data: foundUser
-      });
+      })
     } else {
       // User password is incorrect
       return response.status(401).json({
         message: "User Password is incorrect",
         data: null,
-      });
+      })
     }
   } else {
     // If user doesn't exist
@@ -83,8 +80,8 @@ const getAllUsers = async (request, response) => {
         email: user.email,
         id: user._id,
         createdAt: user.createdAt,
-      };
-    });
+      }
+    })
     return response.status(200).json({
       message: "Users found Succesfully",
       filteredData,
@@ -93,9 +90,9 @@ const getAllUsers = async (request, response) => {
     return response.status(500).json({
       message: "There was an error",
       error,
-    });
+    })
   }
-};
+}
 
 const editProfile = async(request, response) => {
   const user = request.body;
@@ -133,4 +130,4 @@ module.exports = {
   loginUser,
   getAllUsers,
   editProfile,
-};
+}
